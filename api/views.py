@@ -12,7 +12,7 @@ from api.serializers import RecipeSerializer
 @api_view(['GET', 'POST'])
 def add(request):
 	if request.method == 'GET':
-		recipe = Recipe.objects.get(id=2)
+		recipe = Recipe.objects.order_by('?').first()
 		serializer = RecipeSerializer(recipe)
 		return Response(serializer.data)
 
